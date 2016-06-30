@@ -1,0 +1,67 @@
+#form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    position: absolute;
+}
+label {
+    font-family: 'Raleway', cursive;
+    padding-right: 10px;
+    font-weight: bold;
+}
+input {
+    border: 2px solid #aaa;
+    width: 500px;
+    height: 50px;
+    border-radius: 8px;
+    transition: all .5s;
+    padding-left: 30px;
+    box-shadow: 0px 0px 25px #000;
+}
+input[type=submit] {
+    padding-left: -75px;
+    margin-left: 50px;
+    width: 400px;
+}
+input[type=text]:hover {
+    border: 2px solid #000000;
+}
+input[type=password]:hover {
+    border: 2px solid #000000;
+}
+input[type=text]:focus {
+    outline: none;
+    padding: 20px;
+}
+input[type=password]:focus {
+    outline: none;
+    padding: 20px;
+}
+#container {
+    position: relative;
+    width: 800px;
+    height: 430px;
+    background: rgba(0, 0, 0, 0.);
+    margin-left: 570px;
+    padding-left: 70px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 100px;
+    background: rgba(0, 0, 0, .1)
+}
+.heading {
+    margin-left: -100px;
+    padding-top: 70px;
+    text-shadow: 1px 1px 1px #696969;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 50px;
+    color: white;
+}
+body {
+    background: url('http://www.starwallpapers.com/walls/yellow_cab_car_toy_photo_hd_wallpaper-wide.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    background-attachment: fixed;
+    color: white;
+}

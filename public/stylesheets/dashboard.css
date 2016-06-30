@@ -1,0 +1,40 @@
+body {
+    background: url('http://www.starwallpapers.com/walls/yellow_cab_car_toy_photo_hd_wallpaper-wide.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    background-attachment: fixed;
+    color: white;
+}
+#container {
+    position: relative;
+    width: 800px;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.);
+    margin-left: 570px;
+    padding-left: 70px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 100px;
+    background: rgba(0, 0, 0, .1);
+    margin-top: 200px;
+}
+#form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    position: absolute;
+}
+#post {
+    margin-left: 50px;
+}
+#search {
+    margin-left: 300px;
+}
+input[type=submit] {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+input[type=radio] {
+    margin: 10px;
+}

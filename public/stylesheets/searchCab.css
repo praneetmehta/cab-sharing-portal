@@ -1,0 +1,61 @@
+.cabContainer {
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80%;
+    height: 100px;
+    position: relative;
+    background: #eee;
+    text-align: center;
+    transition: all 0.2s;
+    background: rgba(0, 0, 0, 0.7);
+}
+#heading {
+    background: rgba(0, 0, 0, 0.0);
+    display: block;
+    position: relative;
+    width: 500px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 50%;
+    left: -250px;
+}
+h1 {
+    text-align: center;
+    font-family: 'Faster One';
+    color: #FFD958;
+    weight: 800;
+    font-size: 70px;
+}
+.lists {
+    list-style-type: none;
+    margin-left: 10%;
+}
+.time {
+    text-align: left;
+    float: left;
+    font-family: 'Fredoka One';
+}
+.date {
+    text-align: right;
+    float: right;
+    font-family: 'Fredoka One';
+}
+.cabContainer:hover {
+    box-shadow: inset 0px 0px 50px #000;
+    background: #000;
+}
+body {
+    background: url('http://www.starwallpapers.com/walls/yellow_cab_car_toy_photo_hd_wallpaper-wide.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    background-attachment: fixed;
+}
+#main {
+    margin-top: 50px;
+}
+.seatHolder {
+    border-radius: 3px;
+}

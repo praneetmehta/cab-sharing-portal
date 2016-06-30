@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://192.168.1.3:3000/stylesheets/searchCab.css" />
+    <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Faster+One' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <% include ./navbar.ejs %>
+        <div id="main" class="container">
+            <div id="heading">
+                <h1>Cab Listing</h1>
+            </div>
+            <form id="filter" style="text-align: center">
+                <label for="dateFilter">Filter by date;</label>
+                <input type="date" name="dateFilter" />
+                <label for="timeFilter">Filter by time;</label>
+                <input type="time" name="timeFilter" />
+            </form>
+            <ul>
+                <% for(var i=0;i < newCab.length;i++){ %>
+                    <li class="lists">
+                        <div class="cabContainer">
+                            <div>
+                                <h3 class="time"><%= newCab[i].time%></h3>
+                                <h4 class="date"><%= newCab[i].dateOfJourney%></h4>
+                            </div>
+                            <br />
+                            <div>
+                                <h4 class="name">Cab Sharer : <%= newCab[i].name%> => Contact : <%= newCab[i].contact%></h4>
+                                <div class="seatHolder">
+                                    <h4>Total Seats: <%= newCab[i].space%></h4>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+
+</body>
+<script>
+    var colors = ['#16a085', '#27ae60', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', "#77B1A9", "#73A857", "#E44D52"];
+
+    $('.time, .date, .name, .seatText').each(function(e) {
+        var i = Math.floor(Math.random() * colors.length);
+        $(this).css("color", colors[i]);
+    });
+    $('.seatHolder').each(function(e) {
+        var i = Math.floor(Math.random() * colors.length);
+        $(this).css({
+            "background": colors[i],
+            "color": "black"
+        });
+    });
+</script>
+
+</html>
