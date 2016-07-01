@@ -8,5 +8,7 @@ Whats comming ahead-
  - ability to show occupied seats and available seats
  - ability to show the users currently sharing the cab
  - view status of your own post on your dashboard
+ - FACEBOOK  Login 
+ - responsive design (currently optimized only for desktop/laptop(1080p) screens...lots of horizontal scrolling in phones required)
  
 and much more....
