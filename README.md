@@ -10,5 +10,6 @@ Whats comming ahead-
  - view status of your own post on your dashboard
  - FACEBOOK  Login 
  - responsive design (currently optimized only for desktop/laptop(1080p) screens...lots of horizontal scrolling in phones required)
+ - make seperate routes for showing listing of cabs and posting sharing request by seperating it from the user routes
  
 and much more....
