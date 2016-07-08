@@ -1,7 +1,9 @@
 var express = require('express');
+var bcrypt = require('bcryptjs');
 var router = express.Router();
+
 var newUser = require('../schemas/registrationSchema.js');
-var Cab = require('../schemas/postsSchema.js');
+
 var sessions = require('../schemas/sessionSchema.js');
 
 var mongoose = require('mongoose');
@@ -47,10 +49,13 @@ router.post('/register', function(req, res) {
 
         var newuser = new newUser;
 
+
         newuser.firstname = firstname;
         newuser.lastname = lastname;
         newuser.username = username;
-        newuser.password = password;
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync(password, salt);
+        newuser.password = hash;
         newuser.save(function(err, savedObject) {
             if (err) {
                 console.log(err);
@@ -66,12 +71,12 @@ router.post('/register', function(req, res) {
 
 //login request
 router.post('/login', function(req, res) {
+
     var username = req.body.username;
     var password = req.body.password;
 
     newUser.findOne({
         username: username,
-        password: password
     }, function(err, newUser) {
         if (err) {
             console.log(err);
@@ -85,9 +90,14 @@ router.post('/login', function(req, res) {
             return console.log('Hey admin!!');
             return res.redirect('/users/admin');
         } else {
-            req.session.user = username;
-            console.log(req.session.user);
-            return res.redirect('/users/home');
+            if (bcrypt.compareSync(password, newUser.password)) {
+
+                req.session.user = username;
+                console.log(req.session.user);
+                return res.redirect('/users/home');
+            } else {
+                return res.redirect('/users/login');
+            }
         }
     });
 });
@@ -103,60 +113,12 @@ router.get('/logout', function(req, res) {
     }
 });
 
-router.get('/response', function(req, res) {
-    if (req.query.query == 'post') {
-        res.render('postsharing', {
-            title: req.session.user
+router.get('/check', function(req, res) {
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash('password', salt, function(err, hash) {
+            console.log(hash);
         });
-    } else if (req.query.query == 'search') {
-        Cab.find({}).exec(function(err, cab) {
-            if (err) {
-                console.log(err);
-            } else {
-                res.render('searchCab', {
-                    newCab: cab
-                });
-            }
-        });
-    } else {
-        res.redirect('/users/home');
-    }
-});
-
-router.post('/createpost', function(req, res) {
-    var username = req.session.user;
-    var cab = req.body.cab;
-    var date = req.body.date;
-    var time = req.body.time;
-    var space = req.body.space;
-    var contact = req.body.contact;
-
-    var date = new Date(date);
-    //extract date
-    var month = date.getMonth() + 1; //months from 1-12
-    var day = date.getDate();
-    var year = date.getFullYear();
-
-    var newCab = new Cab;
-    newCab.cab = cab;
-    newCab.dateOfJourney = day + "/" + month + "/" + year;
-    newCab.space = space;
-    newCab.time = time;
-    newCab.name = req.session.user;
-    newCab.contact = contact;
-
-
-    newCab.save(function(err, savedCab) {
-        if (err) {
-            console.log(err);
-            res.redirect('/users/home');
-        } else {
-            console.log('Journey Registerd');
-            res.redirect('/users/response?query=search');
-            console.log(time);
-            console.log(typeof date);
-        }
-    })
-});
+    });
+})
 
 module.exports = router;

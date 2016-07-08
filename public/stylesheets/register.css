@@ -41,11 +41,11 @@ input[type=password]:hover {
 }
 input[type=text]:focus {
     outline: none;
-    padding: 15px;
+    padding-left: 15px;
 }
 input[type=password]:focus {
     outline: none;
-    padding: 15px;
+    padding-left: 15px;
 }
 input[type=submit]:focus {
     outline: none;
@@ -63,6 +63,5 @@ body {
     background: url('http://www.starwallpapers.com/walls/yellow_cab_car_toy_photo_hd_wallpaper-wide.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(8px);
     background-attachment: fixed;
 }

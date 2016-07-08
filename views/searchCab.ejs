@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Admin</title>
+    <title>Available Cabs</title>
     <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="http://192.168.1.3:3000/stylesheets/searchCab.css" />
+    <link rel="stylesheet" href="http://localhost:3000/stylesheets/searchCab.css" />
     <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
@@ -19,11 +19,12 @@
             <div id="heading">
                 <h1>Cab Listing</h1>
             </div>
-            <form id="filter" style="text-align: center">
+            <form id="filter" style="text-align: center" action="response" method="GET">
                 <label for="dateFilter">Filter by date;</label>
-                <input type="date" name="dateFilter" />
+                <input type="date" name="dateFilter" placeholder="yyyy-mm-dd" />
                 <label for="timeFilter">Filter by time;</label>
-                <input type="time" name="timeFilter" />
+                <input type="time" name="timeFilter" placeholder="hh:mm" />
+                <input type="submit" />
             </form>
             <ul>
                 <% for(var i=0;i < newCab.length;i++){ %>

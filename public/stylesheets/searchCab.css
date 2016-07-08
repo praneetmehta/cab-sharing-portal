@@ -50,7 +50,6 @@ body {
     background: url('http://www.starwallpapers.com/walls/yellow_cab_car_toy_photo_hd_wallpaper-wide.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(8px);
     background-attachment: fixed;
 }
 #main {
